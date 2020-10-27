@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.js": "/Todis-SinglePageApp/static/js/main.fc31a6ab.chunk.js",
+    "main.js.map": "/Todis-SinglePageApp/static/js/main.fc31a6ab.chunk.js.map",
+    "runtime-main.js": "/Todis-SinglePageApp/static/js/runtime-main.c6d6808f.js",
+    "runtime-main.js.map": "/Todis-SinglePageApp/static/js/runtime-main.c6d6808f.js.map",
+    "static/css/2.20aa2d7b.chunk.css": "/Todis-SinglePageApp/static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.ad3346ff.chunk.js": "/Todis-SinglePageApp/static/js/2.ad3346ff.chunk.js",
+    "static/js/2.ad3346ff.chunk.js.map": "/Todis-SinglePageApp/static/js/2.ad3346ff.chunk.js.map",
+    "index.html": "/Todis-SinglePageApp/index.html",
+    "static/css/2.20aa2d7b.chunk.css.map": "/Todis-SinglePageApp/static/css/2.20aa2d7b.chunk.css.map",
+    "static/js/2.ad3346ff.chunk.js.LICENSE.txt": "/Todis-SinglePageApp/static/js/2.ad3346ff.chunk.js.LICENSE.txt",
+    "static/media/logo.f6a13849.svg": "/Todis-SinglePageApp/static/media/logo.f6a13849.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c6d6808f.js",
+    "static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.ad3346ff.chunk.js",
+    "static/js/main.fc31a6ab.chunk.js"
+  ]
+}
