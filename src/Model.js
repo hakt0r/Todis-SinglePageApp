@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState }        from 'react';
+import { MdDone, MdAccessTime, MdSnooze } from 'react-icons/md';
 import { GET, SET } from './lib';
 
 export const PENDING    = 1;
@@ -10,6 +11,18 @@ export const STATUS_TEXT = {
     1: 'Pending',
     2: 'In Progress',
     3: 'Done'
+}
+
+export const STATUS_ICONS = {
+    1: <MdSnooze/>,
+    2: <MdAccessTime/>,
+    3: <MdDone/>
+}
+
+export const STATUS_VARIANT = {
+    1: "secondary",
+    2: "warning",
+    3: "success"
 }
 
 const defaultState = {
@@ -32,7 +45,7 @@ const addTodoGenerator = (state,setState)=> (content)=> {
         date:Date.now(),
         status:PENDING
     }
-    newState.list = [...state.list, newTodo];
+    newState.list = [ newTodo, ...state.list ];
     setState(newState);
 }
 
@@ -48,24 +61,15 @@ const changeTodoGenerator = (state,setState)=> (date,content)=> {
     setState(newState);
 }
 
-const toggleTodoGenerator = (state,setState)=> (date)=> {
+const toggleTodoGenerator = (state,setState)=> (date,status)=> {
     const newState = { ...state };
 
     const oldTodoIndex  = state.list.findIndex( t => t.date === date );
     if ( oldTodoIndex === -1 ) return;
     
     const oldTodo  = state.list[oldTodoIndex];
-    
-    let newStatus;
 
-    switch ( oldTodo.status ){
-        case PENDING:    newStatus = INPROGRESS; break;
-        case INPROGRESS: newStatus = DONE; break;
-        case DONE:       newStatus = PENDING; break;
-        default:         newStatus = PENDING;
-    }
-
-    const newTodo  = { ...oldTodo, status:newStatus }; 
+    const newTodo  = { ...oldTodo, status }; 
 
     newState.list  = [ ...state.list ];
     newState.list[oldTodoIndex] = newTodo;

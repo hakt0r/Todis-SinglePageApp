@@ -1,11 +1,8 @@
 
 import React, { useState } from 'react';
-import moment from 'moment';
 
-import {
-    STATUS_TEXT
-} from '../Model';
-import { FormControl, Button, ButtonGroup } from 'react-bootstrap';
+import { FormControl, Button, InputGroup } from 'react-bootstrap';
+import { MdSave, MdCancel } from 'react-icons/md';
 
 export default function Edit(props) {
     const todo = props.todo;
@@ -19,19 +16,19 @@ export default function Edit(props) {
     }
     return (
         <tr>
-            <td>{moment(todo.date).fromNow()}</td>
-            <td>
-                <FormControl
-                    value={value}
-                    onChange={ e => setValue(e.target.value) }
-                />
-            </td>
-            <td>{STATUS_TEXT[todo.status]}</td>
-            <td>
-                <ButtonGroup>
-                    <Button onClick={save}>Save</Button>
-                    <Button onClick={cancel} variant="danger">Cancel</Button>
-                </ButtonGroup>
+            <td colSpan={2}>
+                <InputGroup>
+                    <FormControl
+                        value={value}
+                        onChange={ e => setValue(e.target.value) }
+                    />
+                    <InputGroup.Append>
+                        <Button title="Save" onClick={save}>
+                            <MdSave/>
+                        </Button>
+                        <Button title="Cancel" onClick={cancel} variant="danger"><MdCancel/></Button>
+                    </InputGroup.Append>
+                </InputGroup>
             </td>
         </tr>
     )
