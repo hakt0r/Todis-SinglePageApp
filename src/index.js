@@ -1,12 +1,16 @@
+
+
 import React      from 'react';
 import ReactDOM   from 'react-dom';
+
 import App        from './App';
 import TodisStore from './Model';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
-import { BrowserRouter } from 'react-router-dom';
+import * as SWork from './serviceWorkerRegistration';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  BrowserRouter
+} from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,4 +23,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-serviceWorkerRegistration.register();
+SWork.register();

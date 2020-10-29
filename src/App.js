@@ -2,6 +2,8 @@
 import React from 'react';
 import List  from './component/List';
 import logo  from './logo.svg';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 
 function App(props) {
