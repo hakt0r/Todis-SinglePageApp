@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/Todis-SinglePageApp/static/css/main.29388e19.chunk.css",
-    "main.js": "/Todis-SinglePageApp/static/js/main.7b45f2a7.chunk.js",
-    "main.js.map": "/Todis-SinglePageApp/static/js/main.7b45f2a7.chunk.js.map",
+    "main.css": "/Todis-SinglePageApp/static/css/main.9bf6a9bd.chunk.css",
+    "main.js": "/Todis-SinglePageApp/static/js/main.a328dc24.chunk.js",
+    "main.js.map": "/Todis-SinglePageApp/static/js/main.a328dc24.chunk.js.map",
     "runtime-main.js": "/Todis-SinglePageApp/static/js/runtime-main.c6d6808f.js",
     "runtime-main.js.map": "/Todis-SinglePageApp/static/js/runtime-main.c6d6808f.js.map",
-    "static/css/2.20aa2d7b.chunk.css": "/Todis-SinglePageApp/static/css/2.20aa2d7b.chunk.css",
-    "static/js/2.07602e9e.chunk.js": "/Todis-SinglePageApp/static/js/2.07602e9e.chunk.js",
-    "static/js/2.07602e9e.chunk.js.map": "/Todis-SinglePageApp/static/js/2.07602e9e.chunk.js.map",
+    "static/css/2.109aacae.chunk.css": "/Todis-SinglePageApp/static/css/2.109aacae.chunk.css",
+    "static/js/2.3514e232.chunk.js": "/Todis-SinglePageApp/static/js/2.3514e232.chunk.js",
+    "static/js/2.3514e232.chunk.js.map": "/Todis-SinglePageApp/static/js/2.3514e232.chunk.js.map",
     "index.html": "/Todis-SinglePageApp/index.html",
     "service-worker.js": "/Todis-SinglePageApp/service-worker.js",
     "service-worker.js.map": "/Todis-SinglePageApp/service-worker.js.map",
-    "static/css/2.20aa2d7b.chunk.css.map": "/Todis-SinglePageApp/static/css/2.20aa2d7b.chunk.css.map",
-    "static/css/main.29388e19.chunk.css.map": "/Todis-SinglePageApp/static/css/main.29388e19.chunk.css.map",
-    "static/js/2.07602e9e.chunk.js.LICENSE.txt": "/Todis-SinglePageApp/static/js/2.07602e9e.chunk.js.LICENSE.txt",
+    "static/css/2.109aacae.chunk.css.map": "/Todis-SinglePageApp/static/css/2.109aacae.chunk.css.map",
+    "static/css/main.9bf6a9bd.chunk.css.map": "/Todis-SinglePageApp/static/css/main.9bf6a9bd.chunk.css.map",
+    "static/js/2.3514e232.chunk.js.LICENSE.txt": "/Todis-SinglePageApp/static/js/2.3514e232.chunk.js.LICENSE.txt",
     "static/media/logo.f6a13849.svg": "/Todis-SinglePageApp/static/media/logo.f6a13849.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.c6d6808f.js",
-    "static/css/2.20aa2d7b.chunk.css",
-    "static/js/2.07602e9e.chunk.js",
-    "static/css/main.29388e19.chunk.css",
-    "static/js/main.7b45f2a7.chunk.js"
+    "static/css/2.109aacae.chunk.css",
+    "static/js/2.3514e232.chunk.js",
+    "static/css/main.9bf6a9bd.chunk.css",
+    "static/js/main.a328dc24.chunk.js"
   ]
 }
