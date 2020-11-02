@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import {
     MdSave, MdCancel
@@ -9,14 +9,17 @@ import {
     FormControl, Button, InputGroup
 } from 'react-bootstrap';
 
+import { TodoContext } from '../Model';
+
 export default function Edit(props) {
+    const Todo = useContext(TodoContext);
 
     const todo = props.todo;
 
     const [ value, setValue ] = useState(todo.content);
 
     function save(){
-        props.changeTodo(todo.date,value);
+        Todo.change(todo.date,value);
         props.setEdit(false);
     }
 

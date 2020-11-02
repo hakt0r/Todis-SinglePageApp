@@ -1,5 +1,5 @@
 
-import React, { useState }  from 'react';
+import React, { useState } from 'react';
 
 import { Badge }  from 'react-bootstrap';
 
@@ -26,11 +26,11 @@ export default function View(props) {
         >{ view ? "less" : "more" }</Badge>
     }
 
-    if ( edit ) return <Edit {...props} setEdit={setEdit} />;
+    if ( edit ) return <Edit todo={todo} setEdit={setEdit} />;
 
     return (
         <tr>
-            <td><Tools {...props} setEdit={setEdit}/></td>
+            <td><Tools todo={todo} setEdit={setEdit}/></td>
             <td>
                 {content}<br/>
                 <Badge variant="primary">

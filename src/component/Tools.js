@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { Badge, Dropdown }  from 'react-bootstrap';
 
@@ -16,9 +16,10 @@ import {
   DONE
 } from '../Model';
 
-export default function Tools({
-  todo, setTodo, deleteTodo, setEdit
-}) {
+import { TodoContext } from '../Model';
+
+export default function Tools({todo, setEdit}) {
+  const Todo = useContext(TodoContext);
   return (
     <Dropdown>
 
@@ -28,19 +29,19 @@ export default function Tools({
 
       <Dropdown.Menu>
 
-        <Dropdown.Item onClick={e => setTodo(todo.date, PENDING)}>
+        <Dropdown.Item onClick={e => Todo.set(todo.date, PENDING)}>
           <Badge variant={STATUS_VARIANT[PENDING]}>
             {STATUS_ICONS[PENDING]}
           </Badge> {STATUS_TEXT[PENDING]}
         </Dropdown.Item>
 
-        <Dropdown.Item onClick={e => setTodo(todo.date, INPROGRESS)}>
+        <Dropdown.Item onClick={e => Todo.set(todo.date, INPROGRESS)}>
           <Badge variant={STATUS_VARIANT[INPROGRESS]}>
             {STATUS_ICONS[INPROGRESS]}
           </Badge> {STATUS_TEXT[INPROGRESS]}
         </Dropdown.Item>
 
-        <Dropdown.Item onClick={e => setTodo(todo.date, DONE)}>
+        <Dropdown.Item onClick={e => Todo.set(todo.date, DONE)}>
           <Badge variant={STATUS_VARIANT[DONE]}>
             {STATUS_ICONS[DONE]}
           </Badge> {STATUS_TEXT[DONE]}
@@ -54,7 +55,7 @@ export default function Tools({
           </Badge> Edit
           </Dropdown.Item>
 
-        <Dropdown.Item onClick={e => deleteTodo(todo.date)}>
+        <Dropdown.Item onClick={e => Todo.delete(todo.date)}>
           <Badge variant="danger">
             <MdDelete />
           </Badge> Delete

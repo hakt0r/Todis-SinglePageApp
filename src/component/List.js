@@ -1,22 +1,24 @@
 
-import React     from 'react';
-import { Table } from 'react-bootstrap';
+import React           from 'react';
+import { useContext }  from 'react';
 
-import Add       from './Add';
-import View      from './View';
+import { Table }       from 'react-bootstrap';
 
-export default function List(props) {
+import { TodoContext } from '../Model';
 
-    const state = props.state;
+import Add             from './Add';
+import View            from './View';
 
+export default function List() {
+    const Todo = useContext(TodoContext);
     return (
     <Table striped bordered hover>
         <thead>
-            <Add {...props}/>
+            <Add/>
         </thead>
         <tbody>
-            { state.list.map( (todo,index) =>
-                <View {...props} todo={todo} key={index}/>
+            { Todo.state.list.map( ( todo, index ) =>
+                <View todo={todo} key={index}/>
             )}
         </tbody>
     </Table> );

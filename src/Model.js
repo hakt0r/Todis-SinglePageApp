@@ -1,9 +1,7 @@
 
 import { GET, SET } from './lib';
 
-import React, {
-    useEffect, useState
-} from 'react';
+import React, { useState, useEffect } from 'react';
 
 import {
     MdDone, MdAccessTime, MdSnooze
@@ -45,40 +43,42 @@ if ( ! localStorage.getItem('todis-store') ){
 
 const initialState = GET('todis-store');
 
-// State change generators
+export const TodoContext = React.createContext();
 
-const addTodoGenerator = (state,setState)=> (content)=> {
-    setState({ ...state, list: [
+// Actions
+
+function add (content) {
+    this.setState({ ...this.state, list: [
         {
             content: content,
             date:    Date.now(),
             status:  PENDING
         },
-        ...state.list
+        ...this.state.list
     ]});
 }
 
-const changeTodoGenerator = (state,setState)=> (date,content)=> {
-    const list  = state.list;
+function change (date,content) {
+    const list  = this.state.list;
     const index = list.findIndex( t => t.date === date );
     if ( index === -1 ) return;
 
     list[index] = { ...list[index], content }; 
-    setState({ ...state, list: [ ...list ] });
+    this.setState({ ...this.state, list: [ ...list ] });
 }
 
-const setTodoGenerator = (state,setState)=> (date,status)=> {
-    const list  = state.list;
+function set (date,status) {
+    const list  = this.state.list;
     const index = list.findIndex( t => t.date === date );
     if ( index === -1 ) return;
     
     list[index] = { ...list[index], status };
-    setState({ ...state, list: [ ...list ] });
+    this.setState({ ...this.state, list: [ ...list ] });
 }
 
-const deleteTodoGenerator = (state,setState)=> (date)=> {
-    setState({ ...state,
-        list: state.list.filter( t => t.date !== date )
+function delete (date) {
+    this.setState({ ...this.state,
+        list: this.state.list.filter( t => t.date !== date )
     });
 }
 
@@ -88,18 +88,15 @@ export default function TodisStore( { children } ) {
     const [ state, setState ] = useState(initialState);
 
     useEffect( ()=> SET('todis-store',state), [state] );
-
-    const addTodo    = addTodoGenerator(state,setState);
-    const changeTodo = changeTodoGenerator(state,setState);
-    const deleteTodo = deleteTodoGenerator(state,setState);
-    const setTodo    = setTodoGenerator(state,setState);
-
-    // children is on the the App component in this case
-    // usually it would be an array of elements...
-
-    const newChildren = React.cloneElement( children, {
-        state, addTodo, changeTodo, deleteTodo, setTodo
-    });
-
-    return <div id="store">{newChildren}</div>;
+    
+    return <TodoContext.Provider value={{
+        state,
+        setState,
+        add,
+        change,
+        delete,
+        set,
+    }}>
+        {children}
+    </TodoContext.Provider>
 }

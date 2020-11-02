@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { MdAdd } from "react-icons/md";
 
@@ -7,12 +7,15 @@ import {
     Button, FormControl, InputGroup
 } from 'react-bootstrap';
 
-export default function Add(props) {
+import { TodoContext } from '../Model';
+
+export default function Add() {
+    const Todo = useContext(TodoContext);
 
     const [ value, setValue ] = useState('');
 
     function add(){
-        props.addTodo(value);
+        Todo.add(value);
         setValue('');
     }
 
