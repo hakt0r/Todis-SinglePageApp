@@ -76,7 +76,7 @@ function set (date,status) {
     this.setState({ ...this.state, list: [ ...list ] });
 }
 
-function delete (date) {
+function remove (date) {
     this.setState({ ...this.state,
         list: this.state.list.filter( t => t.date !== date )
     });
@@ -94,7 +94,7 @@ export default function TodisStore( { children } ) {
         setState,
         add,
         change,
-        delete,
+        remove,
         set,
     }}>
         {children}

@@ -55,7 +55,7 @@ export default function Tools({todo, setEdit}) {
           </Badge> Edit
           </Dropdown.Item>
 
-        <Dropdown.Item onClick={e => Todo.delete(todo.date)}>
+        <Dropdown.Item onClick={e => Todo.remove(todo.date)}>
           <Badge variant="danger">
             <MdDelete />
           </Badge> Delete
