@@ -47,29 +47,23 @@ export const TodoContext = React.createContext();
 
 // Reducer
 
-// function modifyTodo ( modification ) {
-//     const index = list.findIndex( t => t.date === action.date );
-//     if ( index === -1 ) return state;
-//     state = { ...list[index], ...modification };
-//     return { ...state, list: [ ...list ] };
-// }
+function reducer ( state, { type, date, content, status } ){
 
-// case "change":
-//     return modifyTodo( { content: action.content } )
+    const { list } = state;
 
-// case "set":
-//     return modifyTodo( { status:  action.status  } )
+    function modifyTodo ( modification ) {
+        const index = list.findIndex( t => t.date === date );
+        if ( index === -1 ) return state;
+        state = { ...list[index], ...modification };
+        return { ...state, list: [ ...list ] };
+    }
 
-function reducer ( state, action ){
-
-    const list  = state.list;
-
-    switch ( action.type ) {
+    switch ( type ) {
         
         case "add":
             return { ...state, list: [
                 {
-                    content: action.content,
+                    content: content,
                     date:    Date.now(),
                     status:  PENDING
                 },
@@ -77,20 +71,13 @@ function reducer ( state, action ){
             ]};
             
         case "change":
-        case "set":
-            const index = list.findIndex( t => t.date === action.date );
-            if ( index === -1 ) return state;
+            return modifyTodo( { content } );
 
-            if ( action.type === 'change')
-                 list[index] = { ...list[index], content: action.content };
-            else list[index] = { ...list[index], status: action.status };
-            
-            return { ...state, list: [ ...list ] };
-        
+        case "set":
+            return modifyTodo( { status } );
+
         case "remove":
-            return { ...state,
-                list: state.list.filter( t => t.date !== action.date )
-            };
+            return { ...state, list: list.filter( t => t.date !== date ) };
     
         default:
             break;
@@ -113,17 +100,7 @@ function actions ( dispatch ) {
 export default function TodisStore( { children } ) {
     const [ state, dispatch ] = useReducer(reducer,initialState);
     
-    const todoActions = actions(dispatch);
-
-    const add    = todoActions.add;
-    const change = todoActions.change;
-    const set    = todoActions.set;
-    const remove = todoActions.remove;
-
-    // const add    =      (content) => dispatch({type:'add',content});
-    // const change = (date,content) => dispatch({type:'change',date,content});
-    // const set    =  (date,status) => dispatch({type:'set',date,status});
-    // const remove =         (date) => dispatch({type:'remove',date});
+    const {add,change,set,remove} = actions(dispatch);
 
     useEffect( ()=> SET('todis-store',state), [state] );
     
