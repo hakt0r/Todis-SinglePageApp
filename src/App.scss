@@ -10,11 +10,13 @@
     z-index: -1;
     opacity: 0.1;
     max-width: 100vw;
+    animation: fadeDown 0.8s ease-in-out 0s 1;
 }
 
 .table {
     margin: 10px;
     width: calc( 100% - 20px );
+    animation: fadeIn 0.8s ease-in-out 0s 1;
 }
 
 td:nth-child(2) {
@@ -25,9 +27,24 @@ td:nth-child(2) {
     cursor: pointer;
 }
 
+.dropdown-menu {
+    box-shadow: 2px 2px 2px #00000014;
+    background-color: #FFFFFFF5;
+}
+
 @media ( max-device-width: 350px ){
     .table {
         margin: unset;
         width: 100%;
     }
+}
+
+@keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeDown {
+    0%   { opacity: 1; }
+    100% { opacity: 0.1; }
 }

@@ -12,7 +12,7 @@ import View            from './View';
 export default function List() {
     const Todo = useContext(TodoContext);
     return (
-    <Table striped bordered hover>
+    <Table>
         <thead>
             <Add/>
         </thead>
